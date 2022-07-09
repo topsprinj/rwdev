@@ -1,0 +1,2 @@
+pkg . --compress GZip
+pause

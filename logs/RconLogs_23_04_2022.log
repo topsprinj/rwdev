@@ -1,0 +1,6 @@
+16:37:21 | Error | '⚠ Survival Ошибка при подключении к серверу ⚠ Error: connect ECONNREFUSED 127.0.0.1:25575' | 
+16:37:21 | Error | '⚠ Ошибка сервера Survival: RconError: Instance is not authed' | 
+16:41:02 | Error | '⚠ Auth Ошибка при подключении к серверу ⚠ Error: connect ECONNREFUSED 127.0.0.1:25575' | 
+16:41:02 | Error | '⚠ Ошибка сервера Auth: RconError: Instance is not authed' | 
+16:46:07 | Error | '⚠ Auth Ошибка при подключении к серверу ⚠ Error: connect ETIMEDOUT 194.190.152.108:25575' | 
+16:46:07 | Error | '⚠ Ошибка сервера Auth: RconError: Instance is not authed' | 
