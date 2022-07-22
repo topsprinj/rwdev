@@ -24,9 +24,9 @@ module.exports = {
     }
     if(bots.block_cmd == 2) {
     const cmd_allow = await mysql.AllowCmd.findOne({where: {cmd: cmde.toLowerCase(), server: server.toLowerCase()}, limit: 1000});      
-    if(cmd_allow && cmd_allow.cmd == cmde) return funct.repla('addcmd', message.user, bot_message.blocked_cmd, 0, '', 0, '', '', ''+cmde.toLowerCase()+'', '', '').then(info => {message.send(info)});
+    if(cmd_allow && cmd_allow.cmd == cmde) return funct.repla('addcmd', message.user, bot_message.allowed_cmd, 0, '', 0, '', '', ''+cmde.toLowerCase()+'', '', '').then(info => {message.send(info)});
     mysql.AllowCmd.create({cmd: cmde.toLowerCase(), server: server.toLowerCase()});
-    funct.repla('addcmd', message.user, bot_message.block_cmd, 0, '', 0, '', '', ''+cmde.toLowerCase()+'', ''+prefix.prefix+'', '').then(info => {message.send(info)});
+    funct.repla('addcmd', message.user, bot_message.allow_cmd, 0, '', 0, '', ''+cmde.toLowerCase()+'', '', ''+prefix.prefix+'', '').then(info => {message.send(info)});
     }
     /*
     if(settings.block_cmd == 3) {

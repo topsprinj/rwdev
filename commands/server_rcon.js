@@ -34,7 +34,9 @@ module.exports = {
     
     const rcon_data = await mysql.Rcon_Data.findOne({where: {name: server.split(':')[0].toLowerCase()}, limit: 1000});
     
-    const cmd_allow = await mysql.AllowCmd.findOne({where: {cmd: args[2].split(' ')[0].toLowerCase(), server: server.split(':')[0].toLowerCase()}, limit: 1000});
+    const cmd_allow = await mysql.AllowCmd.findOne({where: {cmd: args[2].split(' ')[0].toLowerCase(), server: server.split(':')[0].toLowerCase()},  raw: true, limit: 1000});
+
+    const cmd_allowos = await mysql.AllowCmd.findOne({where: {cmd: args[2].toLowerCase(), server: server.split(':')[0].toLowerCase()}, raw: true, limit: 1000});
    
     let regexp = /[^a-zA-Z]/ig;
 
@@ -160,7 +162,9 @@ module.exports = {
     
     let zaprets1 = args[2].split(' ')[0].toLowerCase();
   
-    if (cmd_allow && cmd_allow.cmd != zaprets1) {return funct.repla('server_rcon', message.user, bot_message.not_allow_cmd, 0, '', 0, '', ''+cmds.toLowerCase()+'', '', ''+prefix.prefix+'', '').then(info => {message.send(info)});};
+    let zaprets2 = args[2].toLowerCase();
+
+    if (!cmd_allow||!cmd_allowos) {return funct.repla('server_rcon', message.user, bot_message.not_allow_cmd, 0, '', 0, '', ''+cmds.toLowerCase()+'', '', ''+prefix.prefix+'', '').then(info => {message.send(info)});};
 
     funct.repla('server_rcon', message.user, bot_message.connect_server, 0, '', 0, '', ''+cmds.toLowerCase()+'', '', ''+prefix.prefix+'', '').then(info => {message.send(info)});
 
